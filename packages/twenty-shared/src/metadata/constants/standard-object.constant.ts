@@ -5,6 +5,45 @@
  */
 
 export const STANDARD_OBJECTS = {
+  whatsappMessage: {
+    universalIdentifier: '5c23e64f-ccf2-4c2e-b795-e00a89d03186',
+    fields: {
+      id: { universalIdentifier: 'f6ae0101-30eb-4c8d-a8c6-63bb13456828' },
+      createdAt: { universalIdentifier: '36c0db3e-5715-4f3f-8f59-a212013e16bd' },
+      updatedAt: { universalIdentifier: 'd6c17cf9-0311-42f5-b62e-fc5c65073adb' },
+      deletedAt: { universalIdentifier: '44fe8c11-703c-40e2-870b-3f02ca942cb2' },
+      phoneNumber: { universalIdentifier: '881c0df0-ad5d-464c-a521-fc7f81af5498' },
+      messageBody: { universalIdentifier: '940a856a-c5b4-410c-8cda-db2ac7fbec4e' },
+      scheduledAt: { universalIdentifier: 'c7203a53-8ba3-44e8-b1e2-ac122806de3b' },
+      status: { universalIdentifier: '79daeb60-7b29-46e6-8218-f6bb44a3a71d' },
+      direction: { universalIdentifier: '2bea77a8-7d03-4bd3-bb1f-f9bc7cbd7351' },
+      externalId: { universalIdentifier: '19141781-8d5d-459b-a206-6e744c940d83' },
+      person: { universalIdentifier: '2efeaa14-0078-4e26-953a-8c906479210c' },
+      workspaceMember: { universalIdentifier: '08808a73-e739-4e5b-9571-f9d33d57492a' },
+      createdBy: { universalIdentifier: '09d91983-2305-4ff1-a7da-69af1ee877ee' },
+      updatedBy: { universalIdentifier: 'ebcdc7b0-0224-4ecf-afb4-eee460033f6b' },
+    },
+    indexes: {
+      personIdIndex: {
+        universalIdentifier: 'ebceddb0-0224-4ecf-afb4-eee460033f6b',
+      },
+      statusIndex: {
+        universalIdentifier: 'eabcdab0-0224-4ecf-afb4-eee460033f6c',
+      },
+    },
+    views: {
+      allWhatsappMessages: {
+        universalIdentifier: 'ebceedb0-0224-4ecf-afb4-eee460033f6a',
+        viewFields: {
+          phoneNumber: { universalIdentifier: 'a1ceedb0-0224-4ecf-afb4-eee460033f61' },
+          messageBody: { universalIdentifier: 'a2ceedb0-0224-4ecf-afb4-eee460033f62' },
+          status: { universalIdentifier: 'a3ceedb0-0224-4ecf-afb4-eee460033f63' },
+          scheduledAt: { universalIdentifier: 'a4ceedb0-0224-4ecf-afb4-eee460033f64' },
+          person: { universalIdentifier: 'a5ceedb0-0224-4ecf-afb4-eee460033f65' },
+        },
+      },
+    },
+  },
   attachment: {
     universalIdentifier: '20202020-bd3d-4c60-8dca-571c71d4447a',
     fields: {

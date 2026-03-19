@@ -251,6 +251,12 @@ const SettingsBilling = lazy(() =>
   })),
 );
 
+const SettingsWhatsapp = lazy(() =>
+  import('~/pages/settings/whatsapp/SettingsWhatsapp').then((module) => ({
+    default: module.SettingsWhatsapp,
+  })),
+);
+
 const SettingsObjects = lazy(() =>
   import('~/pages/settings/data-model/SettingsObjects').then((module) => ({
     default: module.SettingsObjects,
@@ -497,6 +503,7 @@ export const SettingsRoutes = ({ isAdminPageEnabled }: SettingsRoutesProps) => (
           element={<SettingsLogicFunctionDetail />}
         />
         <Route path={SettingsPath.Billing} element={<SettingsBilling />} />
+        <Route path={SettingsPath.Whatsapp} element={<SettingsWhatsapp />} />
         <Route path={SettingsPath.Domain} element={<SettingsDomain />} />
         <Route
           path={SettingsPath.NewEmailingDomain}

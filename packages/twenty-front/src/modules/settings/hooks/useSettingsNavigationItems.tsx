@@ -182,6 +182,12 @@ const useSettingsNavigationItems = (): SettingsNavigationSection[] => {
           isNew: true,
         },
         {
+          label: t`WhatsApp`,
+          path: SettingsPath.Whatsapp,
+          Icon: IconMessage,
+          isHidden: !permissionMap[PermissionFlagType.WORKSPACE],
+        },
+        {
           label: t`AI`,
           path: SettingsPath.AI,
           Icon: IconSparkles,

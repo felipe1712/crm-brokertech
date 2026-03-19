@@ -16,6 +16,7 @@ import { type MessageParticipantWorkspaceEntity } from 'src/modules/messaging/co
 import { type OpportunityWorkspaceEntity } from 'src/modules/opportunity/standard-objects/opportunity.workspace-entity';
 import { type TaskWorkspaceEntity } from 'src/modules/task/standard-objects/task.workspace-entity';
 import { type TimelineActivityWorkspaceEntity } from 'src/modules/timeline/standard-objects/timeline-activity.workspace-entity';
+import { type WhatsappMessageWorkspaceEntity } from 'src/modules/whatsapp-message/standard-objects/whatsapp-message.workspace-entity';
 
 export enum WorkspaceMemberDateFormatEnum {
   SYSTEM = 'SYSTEM',
@@ -88,4 +89,5 @@ export class WorkspaceMemberWorkspaceEntity extends BaseWorkspaceEntity {
   ownedOpportunities: Relation<OpportunityWorkspaceEntity[]>;
   searchVector: string;
   numberFormat: string;
+  whatsappMessages: Relation<WhatsappMessageWorkspaceEntity[]>;
 }

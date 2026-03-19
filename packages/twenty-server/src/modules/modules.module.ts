@@ -7,6 +7,7 @@ import { FavoriteModule } from 'src/modules/favorite/favorite.module';
 import { MessagingModule } from 'src/modules/messaging/messaging.module';
 import { WorkflowModule } from 'src/modules/workflow/workflow.module';
 import { WorkspaceMemberModule } from 'src/modules/workspace-member/workspace-member.module';
+import { WhatsappMessageModule } from 'src/modules/whatsapp-message/whatsapp-message.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { WorkspaceMemberModule } from 'src/modules/workspace-member/workspace-me
     FavoriteFolderModule,
     FavoriteModule,
     WorkspaceMemberModule,
+    WhatsappMessageModule,
   ],
   providers: [],
   exports: [],

@@ -60,6 +60,32 @@ export const STANDARD_FLAT_OBJECT_METADATA_BUILDERS_BY_OBJECT_NAME = {
       twentyStandardApplicationId,
       now,
     }),
+  whatsappMessage: ({
+    now,
+    workspaceId,
+    standardObjectMetadataRelatedEntityIds,
+    twentyStandardApplicationId,
+    dependencyFlatEntityMaps,
+  }: Omit<CreateStandardObjectArgs<'whatsappMessage'>, 'context' | 'objectName'>) =>
+    createStandardObjectFlatMetadata({
+      objectName: 'whatsappMessage',
+      dependencyFlatEntityMaps,
+      context: {
+        universalIdentifier: STANDARD_OBJECTS.whatsappMessage.universalIdentifier,
+        nameSingular: 'whatsappMessage',
+        namePlural: 'whatsappMessages',
+        labelSingular: 'WhatsApp Message',
+        labelPlural: 'WhatsApp Messages',
+        description: 'WhatsApp Message',
+        icon: 'IconMessageCircle',
+        isSystem: true,
+        labelIdentifierFieldMetadataName: 'phoneNumber',
+      },
+      workspaceId,
+      standardObjectMetadataRelatedEntityIds,
+      twentyStandardApplicationId,
+      now,
+    }),
   calendarChannelEventAssociation: ({
     now,
     workspaceId,
