@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { PageBody } from '@/ui/layout/page/components/PageBody';
 import { Button } from 'twenty-ui';
-import axios from 'axios';
 
 export const SettingsWhatsapp = () => {
   const [qrCode, setQrCode] = useState<string | null>(null);
@@ -11,12 +10,16 @@ export const SettingsWhatsapp = () => {
 
   const fetchSessionStatus = async () => {
     try {
-      // Assuming WAHA running on local or accessible URL
       const wahaUrl = process.env.REACT_APP_WAHA_URL || 'http://localhost:3000';
-      const sessionName = 'default'; // In a multi-tenant environment, this might be workspaceId
+      const sessionName = 'default';
       
-      const res = await axios.get(`${wahaUrl}/api/sessions/${sessionName}`);
-      setStatus(res.data.status);
+      const response = await fetch(`${wahaUrl}/api/sessions/${sessionName}`);
+      if (response.ok) {
+        const data = await response.json();
+        setStatus(data.status);
+      } else {
+        setStatus('not_found');
+      }
     } catch (error) {
       console.error('Failed to fetch WAHA session status', error);
       setStatus('error');
@@ -29,14 +32,14 @@ export const SettingsWhatsapp = () => {
       const wahaUrl = process.env.REACT_APP_WAHA_URL || 'http://localhost:3000';
       const sessionName = 'default';
 
-      // Start the session
-      await axios.post(`${wahaUrl}/api/sessions/start`, { name: sessionName });
+      await fetch(`${wahaUrl}/api/sessions/start`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: sessionName })
+      });
       
-      // We would ideally listen for webhook or poll to get QR
-      // For now, let's assume we can fetch it or wait for the user to scan
       setTimeout(() => fetchSessionStatus(), 5000);
       
-      // Note: This is a placeholder since WAHA provides an endpoint for the QR image:
       setQrCode(`${wahaUrl}/api/default/auth/qr?format=image`);
     } catch (error) {
       console.error('Failed to start WAHA session', error);
@@ -64,14 +67,14 @@ export const SettingsWhatsapp = () => {
 
           {qrCode && status !== 'CONNECTED' && (
             <div style={{ marginTop: 20 }}>
-              <p>Scan the QR code below with your WhatsApp mobile app:</p>
+              <p>Scan the QR code below con tu app de WhatsApp:</p>
               <img src={qrCode} alt="WhatsApp QR Code" />
             </div>
           )}
           
           {status === 'CONNECTED' && (
             <div style={{ marginTop: 20, color: 'green' }}>
-              <p>Your WhatsApp is successfully connected and ready to send messages!</p>
+              <p>¡Tu cuenta de WhatsApp se encuentra enlazada y configurada exitosamente!</p>
             </div>
           )}
         </div>
