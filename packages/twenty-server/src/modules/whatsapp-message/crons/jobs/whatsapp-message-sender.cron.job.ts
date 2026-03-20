@@ -15,10 +15,10 @@ export const WHATSAPP_MESSAGE_SENDER_CRON_PATTERN = '*/1 * * * *';
 @Processor(MessageQueue.cronQueue)
 export class WhatsappMessageSenderCronJob {
   constructor(
-    @InjectRepository(WorkspaceEntity)
+    @InjectRepository(WorkspaceEntity, 'core')
     private readonly workspaceRepository: Repository<WorkspaceEntity>,
     private readonly exceptionHandlerService: ExceptionHandlerService,
-    @InjectDataSource()
+    @InjectDataSource('core')
     private readonly coreDataSource: DataSource,
   ) {}
 
