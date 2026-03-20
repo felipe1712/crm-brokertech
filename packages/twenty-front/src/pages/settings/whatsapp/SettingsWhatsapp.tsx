@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SettingsPageContainer } from '@/settings/components/SettingsPageContainer';
 import { PageBody } from '@/ui/layout/page/components/PageBody';
-import { Button } from 'twenty-ui';
+import { Button } from 'twenty-ui/input';
 
 export const SettingsWhatsapp = () => {
   const [qrCode, setQrCode] = useState<string | null>(null);
