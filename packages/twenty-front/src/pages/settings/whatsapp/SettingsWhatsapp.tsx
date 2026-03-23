@@ -10,7 +10,7 @@ export const SettingsWhatsapp = () => {
 
   const fetchSessionStatus = async () => {
     try {
-      const wahaUrl = process.env.REACT_APP_WAHA_URL || 'http://localhost:3000';
+      const wahaUrl = (process.env as any).REACT_APP_WAHA_URL || 'http://localhost:3000';
       const sessionName = 'default';
       
       const response = await fetch(`${wahaUrl}/api/sessions/${sessionName}`);
@@ -29,7 +29,7 @@ export const SettingsWhatsapp = () => {
   const startSession = async () => {
     setIsLoading(true);
     try {
-      const wahaUrl = process.env.REACT_APP_WAHA_URL || 'http://localhost:3000';
+      const wahaUrl = (process.env as any).REACT_APP_WAHA_URL || 'http://localhost:3000';
       const sessionName = 'default';
 
       await fetch(`${wahaUrl}/api/sessions/start`, {
@@ -53,7 +53,7 @@ export const SettingsWhatsapp = () => {
   }, []);
 
   return (
-    <SettingsPageContainer title="WhatsApp Integration">
+    <SettingsPageContainer>
       <PageBody>
         <div style={{ maxWidth: 600, padding: 24 }}>
           <h2>WhatsApp Connection (WAHA)</h2>
