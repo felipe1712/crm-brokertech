@@ -9,6 +9,7 @@ import { SentryCronMonitor } from 'src/engine/core-modules/cron/sentry-cron-moni
 import { WorkspaceActivationStatus } from 'twenty-shared/workspace';
 import { getWorkspaceSchemaName } from 'src/engine/workspace-datasource/utils/get-workspace-schema-name.util';
 import axios from 'axios';
+import * as process from 'process';
 
 export const WHATSAPP_MESSAGE_SENDER_CRON_PATTERN = '*/1 * * * *';
 
